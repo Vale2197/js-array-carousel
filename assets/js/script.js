@@ -35,19 +35,19 @@ let btnDown = document.getElementById("down");
 image.innerHTML = `<img src="${items[2]}" alt=".">` */
 
 /* LISTA IMG A SCHERMO */
-let listVERO=[];
+let lista_immaginiBloccoCentrale=[];
 let mainImg = "";
-
+let lista_ImmaginiBloccoLato = []
 for (let i = 0; i < items.length; i++) {
     let list = `<div class="item main"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>
                     <div class ="txt"> 
                     <h3> ${title[i]} </h3>
                         <p> ${text[i]} </p> 
                         </div>`
-    listVERO[i]= list;
+    lista_immaginiBloccoCentrale[i]= list;
     
     mainImg = `<div class="item"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>`
-
+    lista_ImmaginiBloccoLato[i] = mainImg
     imgs.innerHTML += mainImg
                    
 }
@@ -60,16 +60,19 @@ btnDown.addEventListener("click", function(){
 
     if(n_Img == 0 ) {
         
-        image.innerHTML = listVERO[n_Img];
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
+        var element = document.getElementsByClassName("item");
         ++n_Img;
     }   
-    else if(n_Img>=listVERO.length) {
+    else if(n_Img>=lista_immaginiBloccoCentrale.length) {
         n_Img=0;
-        image.innerHTML = listVERO[n_Img];
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
+        var element = document.getElementsByClassName("item");
     }   
     else{
         
-        image.innerHTML = listVERO[n_Img];
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
+        var element = document.getElementsByClassName("item");
         ++n_Img;
         
     }
@@ -84,14 +87,14 @@ btnDown.addEventListener("click", function(){
 btnUp.addEventListener("click", function() {
 
     if (n_Img == 0) {
-       n_Img = listVERO.length -1
-        image.innerHTML = listVERO[n_Img]
+       n_Img = lista_immaginiBloccoCentrale.length -1
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img]
         
     } 
 
     else{
         --n_Img
-        image.innerHTML = listVERO[n_Img];
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
        
     }
     console.log(n_Img);
