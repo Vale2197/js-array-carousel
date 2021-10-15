@@ -22,7 +22,7 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ];
 
-let imgs = document.getElementById("imgSide");
+let imgs = document.querySelector(".container > #imgSide");
 
 let image = document.getElementById("img");
 /* /DIV IMMAGINI */
@@ -36,11 +36,20 @@ image.innerHTML = `<img src="${items[2]}" alt=".">` */
 
 /* LISTA IMG A SCHERMO */
 let listVERO=[];
+let mainImg = "";
 
 for (let i = 0; i < items.length; i++) {
-    let list = `<img src=" ${items[i]} " alt="."/>`
+    let list = `<div class="item main"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>
+                    <div class ="txt"> 
+                    <h3> ${title[i]} </h3>
+                        <p> ${text[i]} </p> 
+                        </div>`
     listVERO[i]= list;
-    imgs.innerHTML += list  
+    
+    mainImg = `<div class="item"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>`
+
+    imgs.innerHTML += mainImg
+                   
 }
 /* / LISTA IMG A SCHERMO */
 let n_Img=0;
@@ -48,18 +57,24 @@ let n_Img=0;
 /* BOTTONE DOWN*/
 btnDown.addEventListener("click", function(){
 
-    if(image == "") {
+
+    if(n_Img == 0 ) {
+        
         image.innerHTML = listVERO[n_Img];
+        ++n_Img;
     }   
     else if(n_Img>=listVERO.length) {
         n_Img=0;
         image.innerHTML = listVERO[n_Img];
     }   
     else{
-        image.innerHTML = listVERO[n_Img];
-    }
         
-    ++n_Img;
+        image.innerHTML = listVERO[n_Img];
+        ++n_Img;
+        
+    }
+        console.log(n_Img);
+    
    
 })
 /* / BOTTONE DOWN */
@@ -75,12 +90,12 @@ btnUp.addEventListener("click", function() {
     } 
 
     else{
-
+        --n_Img
         image.innerHTML = listVERO[n_Img];
        
     }
     console.log(n_Img);
-    --n_Img
+    
    
 
 })
