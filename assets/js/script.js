@@ -68,20 +68,20 @@ btnDown.addEventListener("click", function(){
 /* BOTTONE UP */
 btnUp.addEventListener("click", function() {
 
-    if (image == "") {
-        n_Img=0;
+    if (n_Img == 0) {
+       n_Img = listVERO.length -1
         image.innerHTML = listVERO[n_Img]
-    } 
-    else if(n_Img <= listVERO.length) {
         
-        image.innerHTML = listVERO[n_Img];
-    }   
+    } 
+
     else{
 
         image.innerHTML = listVERO[n_Img];
+       
     }
-
-    --n_Img;
+    console.log(n_Img);
+    --n_Img
+   
 
 })
 
