@@ -35,25 +35,54 @@ let btnDown = document.getElementById("down");
 image.innerHTML = `<img src="${items[2]}" alt=".">` */
 
 /* LISTA IMG A SCHERMO */
-let list = [];
+let listVERO=[];
 
 for (let i = 0; i < items.length; i++) {
-    list = `<img src=" ${items[i]} " alt="."/>`
-
-   
-    imgs.innerHTML += list
-    
+    let list = `<img src=" ${items[i]} " alt="."/>`
+    listVERO[i]= list;
+    imgs.innerHTML += list  
 }
 /* / LISTA IMG A SCHERMO */
-
+let n_Img=0;
 
 /* BOTTONE DOWN*/
 btnDown.addEventListener("click", function(){
-    for (let x = 0; x < items.length; x++) {
-        
-    
-  
+
+    if(image == "") {
+        image.innerHTML = listVERO[n_Img];
+    }   
+    else if(n_Img>=listVERO.length) {
+        n_Img=0;
+        image.innerHTML = listVERO[n_Img];
+    }   
+    else{
+        image.innerHTML = listVERO[n_Img];
     }
+        
+    ++n_Img;
+   
+})
+/* / BOTTONE DOWN */
+
+
+/* BOTTONE UP */
+btnUp.addEventListener("click", function() {
+
+    if (image == "") {
+        n_Img=0;
+        image.innerHTML = listVERO[n_Img]
+    } 
+    else if(n_Img <= listVERO.length) {
+        
+        image.innerHTML = listVERO[n_Img];
+    }   
+    else{
+
+        image.innerHTML = listVERO[n_Img];
+    }
+
+    --n_Img;
+
 })
 
 
