@@ -25,16 +25,38 @@ const text = [
 let imgs = document.getElementById("imgSide");
 
 let image = document.getElementById("img");
+/* /DIV IMMAGINI */
+
+let btnUp = document.getElementById("up");
+let btnDown = document.getElementById("down");
+/* / BOTTONI VARIABILI */
 
 /* imgs.innerHTML = `<img src="${items[2]}" alt=".">`
 image.innerHTML = `<img src="${items[2]}" alt=".">` */
 
+/* LISTA IMG A SCHERMO */
 let list = [];
 
 for (let i = 0; i < items.length; i++) {
     list = `<img src=" ${items[i]} " alt="."/>`
 
    
-    image.innerHTML += list
+    imgs.innerHTML += list
     
 }
+/* / LISTA IMG A SCHERMO */
+
+
+/* BOTTONE DOWN*/
+btnDown.addEventListener("click", function(){
+    for (let x = 0; x < items.length; x++) {
+        
+    
+  
+    }
+})
+
+
+
+
+
