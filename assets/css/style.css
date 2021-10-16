@@ -4,25 +4,32 @@
     margin: 0;
 }
 
+body {
+    position: relative;
+    height: 100vh;
+    background-color: black;
+}
+
 .container {
-    width: 90%;
+    width: 70%;
     margin: auto;
-    background-color: blue;
     height: 400px;
     display: flex;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
 }
 
 #img {
     width: 80%;
     height: 100%;
-    background-color: pink;
 }
 
 #imgSide {
     width: 20%;
     height: 100%;
-    background-color: brown;
     display: flex;
     flex-direction: column;
 }
@@ -41,12 +48,18 @@ img {
 .itemList {
     width: 100%;
     height: calc(100% / 5);
+    opacity: 0.75;
 }
 
 #up {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 10px;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
 }
 
 .item.main {
@@ -62,5 +75,17 @@ img {
 }
 
 .attivo {
-    opacity: 0;
+    opacity: 1;
+    border: 1px solid yellow;
+}
+
+#down {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
 }
