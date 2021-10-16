@@ -46,62 +46,73 @@ for (let i = 0; i < items.length; i++) {
                         </div>`
     lista_immaginiBloccoCentrale[i]= list;
     
-    mainImg = `<div class="item"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>`
+    mainImg = `<div class="itemList"> <img style="width: 100%" src=" ${items[i]} " alt="."/> </div>`
     lista_ImmaginiBloccoLato[i] = mainImg
     imgs.innerHTML += mainImg
                    
 }
+
 /* / LISTA IMG A SCHERMO */
 let n_Img=0;
-
+image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
 /* BOTTONE DOWN*/
 btnDown.addEventListener("click", function(){
 
 
+    
     if(n_Img == 0 ) {
-        
         image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
-        var element = document.getElementsByClassName("item");
+        //deo accendere alla posizione zero l'image a destra
+        document.getElementsByClassName("itemList")[n_Img].classList.add("attivo"); 
         ++n_Img;
+                
     }   
     else if(n_Img>=lista_immaginiBloccoCentrale.length) {
         n_Img=0;
         image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
-        var element = document.getElementsByClassName("item");
+        /* devo spegnere l'ultima img e riaccendere la prima */
+        document.getElementsByClassName("itemList")[lista_ImmaginiBloccoLato.length - 1].classList.remove("attivo");
+        document.getElementsByClassName("itemList")[n_Img].classList.add("attivo");
+        ++n_Img
     }   
     else{
-        
-        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
-        var element = document.getElementsByClassName("item");
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];   
+        //devo PRIMA spegnere l'immagine alla posizione precedente
+        document.getElementsByClassName("itemList")[n_Img - 1].classList.remove("attivo"); 
+        //DEVO ACCENDERE l'immagine nella posizione n_Img
+        document.getElementsByClassName("itemList")[n_Img].classList.add("attivo"); 
         ++n_Img;
-        
+             
     }
-        console.log(n_Img);
     
-   
+    console.log(n_Img);
 })
 /* / BOTTONE DOWN */
-
 
 /* BOTTONE UP */
 btnUp.addEventListener("click", function() {
 
     if (n_Img == 0) {
        n_Img = lista_immaginiBloccoCentrale.length -1
-        image.innerHTML = lista_immaginiBloccoCentrale[n_Img]
-        
+        image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
+        /* accendo ultima img */
+        document.getElementsByClassName("itemList")[n_Img].classList.add("attivo");
+        /* devo spegnere la prima */
+        document.getElementsByClassName("itemList")[0].classList.remove("attivo");
     } 
 
     else{
         --n_Img
         image.innerHTML = lista_immaginiBloccoCentrale[n_Img];
-       
+        /* accendo penultima img */
+        document.getElementsByClassName("itemList")[n_Img].classList.add("attivo");
+        /* devo spegnere l'ultima */
+        document.getElementsByClassName("itemList")[n_Img + 1].classList.remove("attivo");
     }
     console.log(n_Img);
     
-   
-
 })
+
 
 
 

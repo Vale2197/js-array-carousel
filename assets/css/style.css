@@ -38,6 +38,11 @@ img {
     height: calc(100% / 5);
 }
 
+.itemList {
+    width: 100%;
+    height: calc(100% / 5);
+}
+
 #up {
     position: absolute;
     top: 0;
@@ -54,4 +59,8 @@ img {
     width: 50%;
     color: white;
     padding: 1rem;
+}
+
+.attivo {
+    opacity: 0;
 }
